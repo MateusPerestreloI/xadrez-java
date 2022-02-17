@@ -2,10 +2,13 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import lombok.Getter;
 import lombok.NonNull;
 
 public class ChessPiece extends Piece{
 	
+
+	@Getter
 	private Color color;
 
 	public ChessPiece(@NonNull Board board, Color color) {
@@ -13,7 +16,4 @@ public class ChessPiece extends Piece{
 		this.color = color;
 	}
 
-	public Color getColor() {
-		return color;
-	}
 }
