@@ -10,7 +10,6 @@ public class King extends ChessPiece{
 	
 	public King(@NonNull Board board, Color color) {
 		super(board, color);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
