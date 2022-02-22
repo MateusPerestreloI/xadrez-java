@@ -30,6 +30,11 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	public static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	public static ChessPosition readChessPosition(Scanner sc)
 	{
 		try {
@@ -40,7 +45,7 @@ public class UI {
 		}
 		catch(RuntimeException e)
 		{
-			throw new InputMismatchException("Erro lendo posição de xadrez. Valores válidos é de A1 até H8");
+			throw new InputMismatchException("Erro lendo posicao de xadrez. Valores validos e de A1 ate H8");
 		}
 	}
 	

@@ -23,7 +23,7 @@ public class Board {
 	public Piece piece(int row, int column)
 	{
 		if(!positionExists(row, column))
-			throw new BoardException("Posição não está dentro do tabuleiro!");
+			throw new BoardException("Posicao nao esta dentro do tabuleiro!");
 		return pieces[row][column];
 	}
 	
@@ -35,7 +35,7 @@ public class Board {
 	public void placePiece(Piece piece, Position position)
 	{
 		if(thereIsAPiece(position))
-			throw new BoardException("Já tem uma peça na posição " + position);
+			throw new BoardException("Ja tem uma peca na posicao " + position);
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
 	}
@@ -43,7 +43,7 @@ public class Board {
 	public Piece removePiece(Position position)
 	{
 		if(!positionExists(position))
-			throw new BoardException("Posição não está dentro do tabuleiro!");
+			throw new BoardException("Posicao nao esta dentro do tabuleiro!");
 		if(piece(position) == null)
 			return null;
 		Piece aux = piece(position);
@@ -65,7 +65,7 @@ public class Board {
 	public boolean thereIsAPiece(Position position)
 	{
 		if(!positionExists(position))
-			throw new BoardException("Posição não está dentro do tabuleiro!");
+			throw new BoardException("Posicao nao esta dentro do tabuleiro!");
 		return piece(position) != null;
 	}
 	
