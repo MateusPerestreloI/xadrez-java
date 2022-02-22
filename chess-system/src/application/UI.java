@@ -39,6 +39,10 @@ public class UI {
 	{
 		try {
 			String s = sc.nextLine();
+			if(s.equalsIgnoreCase("cancel"))
+			{
+				System.exit(0);
+			}
 			char column = s.charAt(0);
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
