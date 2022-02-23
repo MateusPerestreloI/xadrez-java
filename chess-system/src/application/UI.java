@@ -44,11 +44,6 @@ public class UI {
 	{
 		try {
 			String s = sc.nextLine();
-			if(s.equalsIgnoreCase(""))
-			{
-				clearScreen();
-				System.exit(0);
-			}
 			char column = s.charAt(0);
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
@@ -67,6 +62,9 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno: " + chessMatch.getTurn());
 		System.out.println("Esperando Jogador: " + chessMatch.getCurrentPlayer());
+		
+		if(chessMatch.getCheck())
+			System.out.println(ANSI_RED + "CHEQUE!" + ANSI_RESET);
 	}
 	
 	public static void printBoard(ChessPiece[][] pieces)
