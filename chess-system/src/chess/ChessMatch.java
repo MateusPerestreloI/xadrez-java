@@ -75,6 +75,13 @@ public class ChessMatch {
 		return (ChessPiece) capturedPiece;
 	}
 	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition)
+	{
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 	private Piece makeMove(Position source, Position target)
 	{
 		ChessPiece p = (ChessPiece) board.removePiece(source);
@@ -105,13 +112,6 @@ public class ChessMatch {
 		return (color == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 
-	public boolean[][] possibleMoves(ChessPosition sourcePosition)
-	{
-		Position position = sourcePosition.toPosition();
-		validateSourcePosition(position);
-		return board.piece(position).possibleMoves();
-	}
-	
 	private boolean testCheck(Color color)
 	{
 		Position kingPosition = king(color).getChessPosition().toPosition();
@@ -197,12 +197,12 @@ public class ChessMatch {
 	{
 		placeNewPiece('a', 1, new Rook(board, Color.WHITE));
         //placeNewPiece('b', 1, new Horse(board, Color.WHITE));
-        //placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
+        placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('d', 1, new King(board, Color.WHITE));
         //placeNewPiece('e', 1, new Queen(board, Color.WHITE));
-        //placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
+        placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
         //placeNewPiece('g', 1, new Horse(board, Color.WHITE));
-        placeNewPiece('h', 1, new Rook(board, Color.WHITE));
+        /*placeNewPiece('h', 1, new Rook(board, Color.WHITE));
         placeNewPiece('a', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('b', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('c', 2, new Pawn(board, Color.WHITE));
@@ -210,7 +210,7 @@ public class ChessMatch {
         placeNewPiece('e', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('f', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('g', 2, new Pawn(board, Color.WHITE));
-        placeNewPiece('h', 2, new Pawn(board, Color.WHITE));
+        placeNewPiece('h', 2, new Pawn(board, Color.WHITE));*/
 
         placeNewPiece('a', 8, new Rook(board, Color.BLACK));
         //placeNewPiece('b', 8, new Horse(board, Color.BLACK));
