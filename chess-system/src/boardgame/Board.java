@@ -29,6 +29,8 @@ public class Board {
 	
 	public Piece piece(Position position)
 	{
+		if(!positionExists(position))
+			throw new BoardException("Posicao nao esta dentro do tabuleiro! Posicao: " + position.toString());
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
