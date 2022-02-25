@@ -40,6 +40,14 @@ public class Program {
 				
 				if(capturedPiece != null)
 					captured.add(capturedPiece);
+				
+				if(chessMatch.getPromoted() != null)
+				{
+					System.out.println("Escolha para qual peca voce quer promover: ");
+					System.out.println("B - Bispo \nH - Cavalo \nR - Torre \nQ - Rainha");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
 			}
 			catch(ChessException e)
 			{

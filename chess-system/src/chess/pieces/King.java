@@ -90,7 +90,6 @@ public class King extends ChessPiece{
 			
 			//Roque Grande/Roque do lado da Rainha
 			Position posT2 = new Position(position.getRow(), position.getColumn() - 4);
-			System.out.println("Roque Grande: " + posT2.toString());
 			if(posT2.getColumn() >= 0)
 			{
 				if (testRookCastling(posT2)) 
