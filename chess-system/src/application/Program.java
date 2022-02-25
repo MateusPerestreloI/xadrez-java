@@ -17,6 +17,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
 		List<ChessPiece> captured = new ArrayList<>();
+		ChessPiece[][] pieces;
 		
 		while(!chessMatch.isCheckMate())
 		{
@@ -30,6 +31,7 @@ public class Program {
 				
 				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
 				UI.clearScreen();
+				pieces = chessMatch.getPieces();
 				UI.printBoard(chessMatch.getPieces(), possibleMoves);
 				
 				System.out.println();
@@ -45,7 +47,14 @@ public class Program {
 				{
 					System.out.println("Escolha para qual peca voce quer promover: ");
 					System.out.println("B - Bispo \nH - Cavalo \nR - Torre \nQ - Rainha");
-					String type = sc.nextLine();
+					String type = sc.nextLine().toUpperCase();
+					while(!type.equals("B") && !type.equals("H") && !type.equals("R") && !type.equals("Q")) {
+						UI.clearScreen();
+						UI.printBoard(pieces, possibleMoves);
+						System.out.println("Valor Invalido! Escolha para qual peca voce quer promover: ");
+						System.out.println("B - Bispo \nH - Cavalo \nR - Torre \nQ - Rainha");
+						type = sc.nextLine().toUpperCase();
+					}
 					chessMatch.replacePromotedPiece(type);
 				}
 			}

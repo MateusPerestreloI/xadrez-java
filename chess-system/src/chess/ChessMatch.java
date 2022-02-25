@@ -1,6 +1,5 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -103,8 +102,8 @@ public class ChessMatch {
 	{
 		if(promoted == null)
 			throw new IllegalStateException("Nao tem peca para promover!");
-		if(!type.equalsIgnoreCase("B") && !type.equalsIgnoreCase("H") && !type.equalsIgnoreCase("R") && !type.equalsIgnoreCase("Q"))
-			throw new InvalidParameterException("Tipo da promocao nao é valida!");
+		if(!type.equals("B") && !type.equals("H") && !type.equals("R") && !type.equals("Q"))
+			return promoted;
 		
 		Position pos = promoted.getChessPosition().toPosition();
 		Piece p = board.removePiece(pos);
@@ -188,11 +187,11 @@ public class ChessMatch {
 	
 	private ChessPiece newPiece(String type, Color color)
 	{
-		if(type.equalsIgnoreCase("B"))
+		if(type.equals("B"))
 			return new Bishop(board, color);
-		if(type.equalsIgnoreCase("H"))
+		if(type.equals("H"))
 			return new Horse(board, color);
-		if(type.equalsIgnoreCase("Q"))
+		if(type.equals("Q"))
 			return new Queen(board, color);
 		return new Rook(board, color);
 	}
@@ -319,7 +318,7 @@ public class ChessMatch {
 	
 	private void initialSetup()
 	{
-		/*placeNewPiece('a', 1, new Rook(board, Color.WHITE));
+		placeNewPiece('a', 1, new Rook(board, Color.WHITE));
         placeNewPiece('b', 1, new Horse(board, Color.WHITE));
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('e', 1, new King(board, Color.WHITE, this));
@@ -334,9 +333,9 @@ public class ChessMatch {
         placeNewPiece('e', 2, new Pawn(board, Color.WHITE, this));
         placeNewPiece('f', 2, new Pawn(board, Color.WHITE, this));
         placeNewPiece('g', 2, new Pawn(board, Color.WHITE, this));
-        placeNewPiece('h', 2, new Pawn(board, Color.WHITE, this));*/
+        placeNewPiece('h', 2, new Pawn(board, Color.WHITE, this));
 
-        /*placeNewPiece('a', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('a', 8, new Rook(board, Color.BLACK));
         placeNewPiece('b', 8, new Horse(board, Color.BLACK));
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
         placeNewPiece('e', 8, new Queen(board, Color.BLACK));
@@ -351,14 +350,7 @@ public class ChessMatch {
         placeNewPiece('e', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('f', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('g', 7, new Pawn(board, Color.BLACK, this));
-        placeNewPiece('h', 7, new Pawn(board, Color.BLACK, this));*/
-        
-        placeNewPiece('b', 7, new Pawn(board, Color.WHITE, this));
-        placeNewPiece('c', 7, new Pawn(board, Color.WHITE, this));
-        placeNewPiece('e', 4, new King(board, Color.WHITE, this));
-        placeNewPiece('d', 4, new King(board, Color.BLACK, this));
-        placeNewPiece('b', 2, new Pawn(board, Color.BLACK, this));
-        placeNewPiece('c', 2, new Pawn(board, Color.BLACK, this));
+        placeNewPiece('h', 7, new Pawn(board, Color.BLACK, this));
 	}
 
 }
